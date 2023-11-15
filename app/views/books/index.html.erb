@@ -1,9 +1,10 @@
 <h1>User info</h1>
 
   <div>
-    <p></p>
-    <p>name：</p>
-    <p>introduction:</p>
+    <p><%= image_tag current_user.get_profile_image(100,100) %></p>
+    <p>name:<%= current_user.name %></p>
+    <p>introduction:<%= current_user.introduction %></p>
+　　<%= link_to "編集", edit_user_path(current_user) %>
   </div>
 
 
@@ -26,7 +27,7 @@
 <% @books.each do |book| %>
   <div>
     <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-    <p><%= book.title %></p>
+    <p><%= link_to book.title, book_path(book) %></p>
     <p><%= book.body %></p>
   </div>
 <% end %>
