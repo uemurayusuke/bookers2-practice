@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <script src="https://kit.fontawesome.com/*******.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/1043f0fa51.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 
@@ -16,9 +16,13 @@
   <body>
     <header>
     <% if user_signed_in? %>
+    <nav class="navbar navbar-dark bg-dark">
       <li>
-        <%= link_to "Home", user_path(current_user) %>
+        <%= link_to "Bookers", root_path %>
       </li>
+        <%= link_to user_path(current_user) do %>
+        <i class="fa-solid fa-house">Home</i>
+        <% end %>
 
       <li>
         <%= link_to "Users", users_path %>
@@ -31,20 +35,32 @@
       <li>
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </li>
+     </nav>
 
     <% else %>
+    <nav class="navbar navbar-dark bg-dark">
+      <li>
+        <%= link_to "Bookers", root_path %>
+      </li>
+      <li>
+        <%= link_to "Home", root_path %>
+      </li>
+      <li>
+        <%= link_to "About", about_path %>
+      </li>
       <li>
         <%= link_to "Sign up", new_user_registration_path %>
       </li>
       <li>
         <%= link_to "Log in", new_user_session_path %>
       </li>
+    </nav>
     <% end %>
   </header>
     <%= yield %>
 
     <footer>
-      <p class="footer-text">CopyRight Infratop.inc</p>
+      <p class="footer">CopyRight Infratop.inc</p>
     </footer>
 
   </body>
