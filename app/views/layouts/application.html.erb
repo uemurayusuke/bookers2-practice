@@ -6,30 +6,58 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
     <script src="https://kit.fontawesome.com/1043f0fa51.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
+
+
+
   <body>
+
+
+
+
+
     <header>
     <% if user_signed_in? %>
-    <nav class="navbar navbar-dark bg-dark">
-      <li>
-        <%= link_to "Bookers", root_path %>
-      </li>
-        <%= link_to user_path(current_user) do %>
-        <i class="fa-solid fa-house">Home</i>
-        <% end %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+
 
       <li>
-        <%= link_to "Users", users_path %>
+        <%= link_to root_path, class: "navbar-brand" do %>
+        <span>Bookers</span>
+        <% end %>
       </li>
+
+      <ul class="navbar-nav ml-auto">
       <li>
-        <%= link_to "Books", books_path %>
+        <%= link_to user_path(current_user), class: "nav-link text-light" do %>
+        <i class="fa-solid fa-house"></i><span>Home</span>
+        <% end %>
       </li>
+
       <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <%= link_to users_path, class: "nav-link text-light" do %>
+        <i class="fa-solid fa-users"></i><span>Users</span>
+        <% end %>
       </li>
+
+      <li>
+        <%= link_to books_path, class: "nav-link text-light" do %>
+        <i class="fa-solid fa-book-open"></i><span>Books</span>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to "Log out", destroy_user_session_path, class: "nav-link text-light", method: :delete %>
+      </li>
+      </ul>
+      </div>
      </nav>
 
     <% else %>
@@ -52,11 +80,26 @@
     </nav>
     <% end %>
   </header>
+
+
+
+
+
+  <main>
     <%= yield %>
+  </main>
+
+
+
 
     <footer>
-      <p class="footer">CopyRight Infratop.inc</p>
+     <div class="container mt-5">
+     <div class="row">
+     <div class="mx-auto">
+      <p>CopyRight Infratop.inc</p>
+     </div>
+     </div>
+     </div>
     </footer>
-
   </body>
 </html>

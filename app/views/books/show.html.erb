@@ -7,15 +7,24 @@
 <div class="col-md-3">
 
 <h1>User info</h1>
- <div>
+  <div>
     <p><%= image_tag current_user.get_profile_image(100,100) %></p>
-    <p>name:<%= current_user.name %></p>
-    <p>introduction:<%= current_user.introduction %></p>
-    <%= link_to edit_user_path(current_user) do %>
+     <table class="table">
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td><%= current_user.name %></td>
+        </tr>
+        <tr>
+        <td>introduction</td>
+        <td><%= current_user.introduction %></td>
+        </tr>
+      </tbody>
+    </table>
+　　<%= link_to edit_user_path(current_user), class: "btn btn-block btn-outline-secondary" do %>
 　　<i class="fa-solid fa-user-gear"></i>
 　　<% end %>
   </div>
-
 
   <h1>New book</h1>
 <%= form_with model: @bookss do |f| %>
@@ -37,15 +46,15 @@
 
 <table class="table">
   <tr>
-    <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
+    <td><%= image_tag @book.user.get_profile_image(100,100) %><br>
+    <%= link_to @book.user.name, user_path(current_user) %></td>
     <td><%= link_to @book.title, book_path(@book) %></td>
     <td><%= @book.body %></td>
   <% if @book.user == current_user %>
-    <td><%= link_to "Edit", edit_book_path(@book) %></td>
-    <td><%= link_to "Destroy", book_path, method: :delete %></td>
+    <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success" %></td>
+    <td><%= link_to "Destroy", book_path,class: "btn btn-danger", method: :delete %></td>
   <% end %>
   </tr>
-  <td><%= link_to @book.user.name, user_path(current_user) %></td>
 
 </table>
 </div>
