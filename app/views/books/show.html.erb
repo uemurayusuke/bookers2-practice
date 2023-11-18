@@ -2,6 +2,10 @@
   <%= flash[:notice] %>
 </div>
 
+<div class="container">
+<div class="row">
+<div class="col-md-3">
+
 <h1>User info</h1>
  <div>
     <p><%= image_tag current_user.get_profile_image(100,100) %></p>
@@ -21,21 +25,34 @@
   <%= f.text_area :body %>
   <%= f.submit 'Create Book',class: "btn btn-success" %>
 <% end %>
-
-
-<h1>Book detail</h1>
-  <div>
-    <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
-    <p><%= link_to @book.user.name, user_path(current_user) %></p>
-    <p><%= link_to @book.title, book_path(@book) %></p>
-    <p><%= @book.body %></p>
-  </div>
-
-
-
-<div>
-  <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path(@book) %>
-    <%= link_to "Destroy", book_path, method: :delete %>
-  <% end %>
 </div>
+
+
+<div class="offset-md-1">
+</div>
+
+
+<div class="col-md-8">
+<h1>Book detail</h1>
+
+<table class="table">
+  <tr>
+    <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
+    <td><%= link_to @book.title, book_path(@book) %></td>
+    <td><%= @book.body %></td>
+  <% if @book.user == current_user %>
+    <td><%= link_to "Edit", edit_book_path(@book) %></td>
+    <td><%= link_to "Destroy", book_path, method: :delete %></td>
+  <% end %>
+  </tr>
+  <td><%= link_to @book.user.name, user_path(current_user) %></td>
+
+</table>
+</div>
+</div>
+</div>
+
+
+
+
+
