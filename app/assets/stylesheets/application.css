@@ -14,45 +14,4 @@
  *= require_self
  */
 
-* {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
-}
-
-.social i {
- color: white;
-}
-
-
-.nav-list {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.nav-list > :first-child {
-  margin-right: auto;
-}
-
-
-
-.nav-list-text {
- color: white;
- text-decoration:none;
- margin-left:15px;
-}
-
-
-
-.home-text-flex {
- display: flex;
- flex-direction: column;
-}
-
-.home-text {
- display: inline-block;
- text-align: left;
- flex-direction: column;
-}
-
 
