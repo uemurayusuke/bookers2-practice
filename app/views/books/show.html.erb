@@ -8,20 +8,20 @@
 
 <h1>User info</h1>
   <div>
-    <p><%= image_tag current_user.get_profile_image(100,100) %></p>
+    <p><%= image_tag @user.get_profile_image(100,100) %></p>
      <table class="table">
       <tbody>
         <tr>
           <td>name</td>
-          <td><%= current_user.name %></td>
+          <td><%= @user.name %></td>
         </tr>
         <tr>
         <td>introduction</td>
-        <td><%= current_user.introduction %></td>
+        <td><%= @user.introduction %></td>
         </tr>
       </tbody>
     </table>
-　　<%= link_to edit_user_path(current_user), class: "btn btn-block btn-outline-secondary" do %>
+　　<%= link_to edit_user_path(@user), class: "btn btn-block btn-outline-secondary" do %>
 　　<i class="fa-solid fa-user-gear"></i>
 　　<% end %>
   </div>
@@ -37,11 +37,7 @@
 </div>
 
 
-<div class="offset-md-1">
-</div>
-
-
-<div class="col-md-8">
+<div class="col-md-8 offset-md-1">
 <h1>Book detail</h1>
 
 <table class="table">
