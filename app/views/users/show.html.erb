@@ -21,15 +21,9 @@
         </tr>
       </tbody>
     </table>
-
-
-
-    <%= link_to edit_user_path(current_user), class: "btn btn-block btn-outline-secondary" do %>
+    <%= link_to edit_user_path(@user.id), class: "btn btn-block btn-outline-secondary" do %>
 　　<i class="fa-solid fa-user-gear"></i>
 　　<% end %>
-
-
-
   </div>
 
 
@@ -57,23 +51,10 @@
   <% @books.each do |book| %>
   <tbody>
   <tr>
-
-
     <td><%= link_to user_path(book.user.id) do %>
       <%= image_tag book.user.get_profile_image(100,100) %>
       <% end %>
     </td>
-
-
-
-
-
-
-
-
-
-
-
     <td><%= link_to book.title, book_path(book) %></td>
     <td><%= book.body %></td>
   </tr>
