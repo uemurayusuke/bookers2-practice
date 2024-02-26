@@ -21,9 +21,9 @@
         </tr>
       </tbody>
     </table>
-　　<%= link_to edit_user_path(@user), class: "btn btn-block btn-outline-secondary" do %>
-　　<i class="fa-solid fa-user-gear"></i>
-　　<% end %>
+<%= link_to edit_user_path(@user), class: "btn btn-block btn-outline-secondary" do %>
+<i class="fa-solid fa-user-gear"></i>
+<% end %>
   </div>
 
   <h1>New book</h1>
@@ -75,14 +75,6 @@
 </table>
 
 <div>
-  <%= form_with model: [@bookss, @book_comment] do |f| %>
-  <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-  <% end %>
-</div>
-
-
-<div>
   <% @book.book_comments.each do |book_comment| %>
   <%= image_tag book_comment.user.get_profile_image(100,100) %>
   <%= book_comment.user.name %>
@@ -90,6 +82,14 @@
   <% if book_comment.user == current_user %>
       <%= link_to "削除", book_book_comment_path(book_comment.book, book_comment), method: :delete %>
   <% end %>
+  <% end %>
+</div>
+
+<div>
+  <%= form_with model: [@book, @book_comment] do |f| %>
+  <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+  <% end %>
 </div>
 
 
@@ -97,8 +97,3 @@
 </div>
 </div>
 </div>
-
-
-
-
-
