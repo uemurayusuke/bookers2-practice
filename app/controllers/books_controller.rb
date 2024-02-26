@@ -25,6 +25,7 @@ class BooksController < ApplicationController
     @books = current_user.books
     @bookss = Book.new
     @user = User.find(@book.user_id)
+    @book_comment = BookComment.new
   end
 
 
