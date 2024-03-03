@@ -9,6 +9,13 @@ has_many :books, dependent: :destroy
 has_many :favorites, dependent: :destroy
 has_many :book_comments, dependent: :destroy
 
+
+
+has_many :
+
+
+
+
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :name, length: { in: 2..20 }
