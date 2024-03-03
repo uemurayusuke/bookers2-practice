@@ -8,4 +8,5 @@ class Relationship < ApplicationRecord
   #今回はuserとuserで中間テーブルを作成しないといけないので、userの中でfollowerとfollowedで区別するしかない。
 
 
+
 end
